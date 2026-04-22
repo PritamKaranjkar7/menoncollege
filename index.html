@@ -2,17 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menon College</title>
-
-  <link rel="stylesheet" href="styles/variables.css">
-  <link rel="stylesheet" href="styles/global.css">
-  <link rel="stylesheet" href="styles/utilities.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menon College — Excellence in Higher Education</title>
+  <meta name="description" content="Menon College offers undergraduate and postgraduate programs in Arts, Science and Commerce with a legacy of academic excellence." />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div id="app"></div>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>📞 +91 484 000 0000</span>
+      <span>✉️ info@menoncollege.edu.in</span>
+      <span class="hide-sm">Affiliated to University | NAAC Accredited</span>
+    </div>
+  </div>
 
-  <script type="module" src="js/app.js"></script>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <div class="brand-name">Menon College</div>
+          <div class="brand-tag">Knowledge · Wisdom · Service</div>
+        </div>
+      </a>
+
+      <nav class="menu" id="menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#campus">Campus Life</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#admissions" class="btn btn-primary nav-cta">Apply Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <span class="eyebrow">Admissions Open 2025–26</span>
+      <h1>Shaping Future Leaders Through<br/><span class="accent">Academic Excellence</span></h1>
+      <p>A premier institution committed to nurturing intellect, character and innovation across Arts, Science and Commerce disciplines.</p>
+      <div class="hero-cta">
+        <a href="#admissions" class="btn btn-primary">Apply for Admission</a>
+        <a href="#courses" class="btn btn-ghost">Explore Programs</a>
+      </div>
+
+      <div class="hero-stats">
+        <div><strong>40+</strong><span>Years of Legacy</span></div>
+        <div><strong>5,000+</strong><span>Students</span></div>
+        <div><strong>30+</strong><span>Programs</span></div>
+        <div><strong>200+</strong><span>Faculty</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container grid-2">
+      <div>
+        <span class="kicker">About Menon College</span>
+        <h2>A Legacy of Learning, Built on Values</h2>
+        <p>Established with a vision to provide quality higher education, Menon College has grown into one of the most respected institutions in the region. Our holistic approach blends academic rigor with co-curricular growth, preparing students for the challenges of a dynamic world.</p>
+        <ul class="check">
+          <li>NAAC Accredited with high CGPA</li>
+          <li>Experienced faculty and modern infrastructure</li>
+          <li>Strong placement and higher-education record</li>
+          <li>Vibrant campus with 30+ student clubs</li>
+        </ul>
+        <a href="#courses" class="btn btn-primary">Discover More</a>
+      </div>
+      <div class="about-card">
+        <div class="about-stat"><strong>A+</strong><span>NAAC Grade</span></div>
+        <div class="about-stat"><strong>95%</strong><span>Pass Rate</span></div>
+        <div class="about-stat"><strong>50+</strong><span>Recruiters</span></div>
+        <div class="about-stat"><strong>100+</strong><span>Awards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="section section-alt" id="courses">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Academic Programs</span>
+        <h2>Courses We Offer</h2>
+        <p>Undergraduate and postgraduate programs designed to inspire curiosity and build expertise.</p>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card">
+          <div class="course-icon">📘</div>
+          <h3>Bachelor of Arts</h3>
+          <p>English, History, Economics, Political Science and more.</p>
+          <span class="course-tag">UG · 3 Years</span>
+        </article>
+        <article class="course-card">
+          <div class="course-icon">🔬</div>
+          <h3>Bachelor of Science</h3>
+          <p>Physics, Chemistry, Mathematics, Computer Science, Botany.</p>
+          <span class="course-tag">UG · 3 Years</span>
+        </article>
+        <article class="course-card">
+          <div class="course-icon">📊</div>
+          <h3>Bachelor of Commerce</h3>
+          <p>Finance, Taxation, Co-operation and Computer Applications.</p>
+          <span class="course-tag">UG · 3 Years</span>
+        </article>
+        <article class="course-card">
+          <div class="course-icon">🎓</div>
+          <h3>Master of Arts</h3>
+          <p>Specializations in English, Economics and History.</p>
+          <span class="course-tag">PG · 2 Years</span>
+        </article>
+        <article class="course-card">
+          <div class="course-icon">🧪</div>
+          <h3>Master of Science</h3>
+          <p>Advanced studies in Chemistry, Mathematics and Physics.</p>
+          <span class="course-tag">PG · 2 Years</span>
+        </article>
+        <article class="course-card">
+          <div class="course-icon">💼</div>
+          <h3>Master of Commerce</h3>
+          <p>Finance, Marketing and International Business streams.</p>
+          <span class="course-tag">PG · 2 Years</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admissions -->
+  <section class="section admissions" id="admissions">
+    <div class="container grid-2">
+      <div>
+        <span class="kicker light">Admissions 2025–26</span>
+        <h2 class="white">Begin Your Journey at Menon College</h2>
+        <p class="white-soft">Applications are open for all UG and PG programs. Our streamlined admissions process makes it easy to take the next step in your academic journey.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-light">Apply Online</a>
+          <a href="#contact" class="btn btn-outline-light">Download Prospectus</a>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step"><span>1</span><div><h4>Online Application</h4><p>Fill out the simple online form with your details.</p></div></div>
+        <div class="step"><span>2</span><div><h4>Document Verification</h4><p>Submit academic and identity documents.</p></div></div>
+        <div class="step"><span>3</span><div><h4>Merit / Interview</h4><p>Selection based on merit and program criteria.</p></div></div>
+        <div class="step"><span>4</span><div><h4>Confirm Admission</h4><p>Pay fees and join the Menon family.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus -->
+  <section class="section" id="campus">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Campus Life</span>
+        <h2>More Than Just Classrooms</h2>
+        <p>A thriving campus where learning meets culture, sports and innovation.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><div class="f-icon">📚</div><h4>Modern Library</h4><p>50,000+ books, journals and digital resources.</p></div>
+        <div class="feature"><div class="f-icon">🧫</div><h4>Advanced Labs</h4><p>Well-equipped science and computer laboratories.</p></div>
+        <div class="feature"><div class="f-icon">⚽</div><h4>Sports Complex</h4><p>Indoor and outdoor facilities for all major sports.</p></div>
+        <div class="feature"><div class="f-icon">🎭</div><h4>Arts & Culture</h4><p>Annual fests, drama, music and literary clubs.</p></div>
+        <div class="feature"><div class="f-icon">🏠</div><h4>Hostel Facility</h4><p>Safe and comfortable accommodation for outstation students.</p></div>
+        <div class="feature"><div class="f-icon">💻</div><h4>Wi-Fi Campus</h4><p>High-speed connectivity across the entire campus.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
+    <div class="container grid-2">
+      <div>
+        <span class="kicker">Get in Touch</span>
+        <h2>Contact Menon College</h2>
+        <p>Have questions about admissions, programs or campus life? We're here to help.</p>
+        <ul class="contact-list">
+          <li><strong>📍 Address:</strong> Menon College Campus, Kerala, India</li>
+          <li><strong>📞 Phone:</strong> +91 484 000 0000</li>
+          <li><strong>✉️ Email:</strong> info@menoncollege.edu.in</li>
+          <li><strong>🕘 Office:</strong> Mon–Sat, 9:00 AM – 4:30 PM</li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="row">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <input type="text" placeholder="Subject" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-msg" id="formMsg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand footer-brand">
+          <div class="brand-mark">M</div>
+          <div>
+            <div class="brand-name">Menon College</div>
+            <div class="brand-tag">Knowledge · Wisdom · Service</div>
+          </div>
+        </div>
+        <p class="footer-about">Empowering students with quality education and values since decades.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <a href="#about">About Us</a>
+        <a href="#courses">Courses</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h5>Programs</h5>
+        <a href="#courses">Undergraduate</a>
+        <a href="#courses">Postgraduate</a>
+        <a href="#courses">Research</a>
+        <a href="#courses">Certificate</a>
+      </div>
+      <div>
+        <h5>Follow Us</h5>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">t</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      © <span id="year"></span> Menon College. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
