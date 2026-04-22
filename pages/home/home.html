@@ -1,0 +1,18 @@
+<section class="home">
+  <div id="hero"></div>
+  <div id="highlights"></div>
+</section>
+
+<script type="module">
+import { loadComponent } from "../../js/componentLoader.js";
+
+async function load() {
+  document.getElementById("hero").innerHTML =
+    await loadComponent("../../components/hero/hero.html");
+
+  document.getElementById("highlights").innerHTML =
+    await loadComponent("../../components/highlights/highlights.html");
+}
+
+load();
+</script>
