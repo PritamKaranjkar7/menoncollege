@@ -1,53 +1,51 @@
-// -----------------------------
-// NAVBAR + MOBILE MENU
-// -----------------------------
-const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('menu');
-const body = document.body;
+// COMPONENT LOADER
+function loadComponent(id, file, callback) {
+  fetch(file)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+      if (callback) callback();
+    })
+    .catch(err => console.error(err));
+}
 
-hamburger.addEventListener('click', () => {
-  const isOpen = hamburger.classList.toggle('open');
-  menu.classList.toggle('open');
+// NAVBAR LOGIC
+function initNavbar() {
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  const body = document.body;
 
-  // Lock scroll when menu open (premium UX)
-  body.style.overflow = isOpen ? 'hidden' : '';
-});
-
-// Close menu on link click
-menu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    menu.classList.remove('open');
-    body.style.overflow = '';
+  // mobile menu
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    menu.classList.toggle('open');
+    body.style.overflow = open ? 'hidden' : '';
   });
-});
 
+  // close menu on click
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      hamburger.classList.remove('open');
+      body.style.overflow = '';
+    });
+  });
 
-// -----------------------------
-// STICKY NAVBAR EFFECT
-// -----------------------------
-const nav = document.querySelector('.nav');
+  // sticky + active link
+  const nav = document.querySelector('.nav');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    nav.classList.add('nav-scrolled');
-  } else {
-    nav.classList.remove('nav-scrolled');
-  }
-});
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
 
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.menu a');
 
-// -----------------------------
-// ACTIVE LINK (PRO LEVEL)
-// -----------------------------
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.menu a');
-
-const observer = new IntersectionObserver(
-  (entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navLinks.forEach(link => {
+        links.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === '#' + entry.target.id) {
             link.classList.add('active');
@@ -55,107 +53,14 @@ const observer = new IntersectionObserver(
         });
       }
     });
-  },
-  {
-    threshold: 0.6
-  }
-);
+  }, { threshold: 0.6 });
 
-sections.forEach(section => observer.observe(section));
+  sections.forEach(sec => observer.observe(sec));
+}
 
-
-// -----------------------------
-// SCROLL REVEAL (PREMIUM FEEL)
-// -----------------------------
-const revealElements = document.querySelectorAll(
-  '.section, .course-card, .feature, .about-card, .step'
-);
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.15
-  }
-);
-
-revealElements.forEach(el => {
-  el.classList.add('reveal-init');
-  revealObserver.observe(el);
-});
+// LOAD COMPONENTS
+loadComponent("navbar", "/components/navbar.html", initNavbar);
 
 
-// -----------------------------
-// BUTTON RIPPLE EFFECT
-// -----------------------------
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    const circle = document.createElement('span');
-    const rect = this.getBoundingClientRect();
-
-    circle.style.left = `${e.clientX - rect.left}px`;
-    circle.style.top = `${e.clientY - rect.top}px`;
-    circle.classList.add('ripple');
-
-    this.appendChild(circle);
-
-    setTimeout(() => circle.remove(), 600);
-  });
-});
-
-
-// -----------------------------
-// CONTACT FORM (REAL UX)
-// -----------------------------
-const form = document.getElementById('contactForm');
-const formMsg = document.getElementById('formMsg');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const button = form.querySelector('button');
-  button.disabled = true;
-  button.textContent = 'Sending...';
-
-  // Simulate API call
-  await new Promise(res => setTimeout(res, 1500));
-
-  formMsg.textContent = '✓ Message sent successfully!';
-  formMsg.style.color = '#2e8b57';
-
-  form.reset();
-  button.disabled = false;
-  button.textContent = 'Send Message';
-
-  setTimeout(() => (formMsg.textContent = ''), 4000);
-});
-
-
-// -----------------------------
-// DYNAMIC YEAR
-// -----------------------------
+// FOOTER YEAR
 document.getElementById('year').textContent = new Date().getFullYear();
-
-
-// -----------------------------
-// SMOOTH SCROLL (NATIVE ENHANCE)
-// -----------------------------
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (!target) return;
-
-    e.preventDefault();
-
-    target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  });
-});
