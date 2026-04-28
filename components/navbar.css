@@ -53,13 +53,15 @@
 
 .menu {
   display: flex;
-  gap: 1.6rem;
+  gap: clamp(0.8rem, 1.5vw, 1.6rem);
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .menu a {
   color: var(--text);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   position: relative;
   padding: 0.4rem 0;
 }
